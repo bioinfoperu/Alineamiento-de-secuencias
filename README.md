@@ -31,18 +31,72 @@ git clone https://github.com/lh3/bwa.git
 cd bwa; make
 ```
 Proceso de alineación
-> Opcional: Indexar la secuencia de referencia
+> Opcional: Indexar la secuencia de referencia >ecoliK12MG1655_ensembl.fna.fai
 
 Es preferible indexar el archivo fasta de referencia, especialmente cuando se tiene múltiples secuencias como referencias. El indice .fai permite un acceso eficiente en el archivo de alineación a regiones arbitrarias dentro de estas secuencias de referencia.
 
-Crear el indice de la secuencia de referencia
+Crear indice de la secuencia de referencia
 
 ```
 samtools faidx ecoliK12MG1655_ensembl.fna
 ```
 Este comando producirá el siguiente archivo de índice de referencia
 
-![image](https://user-images.githubusercontent.com/84040152/120623387-4d05ec80-c425-11eb-8ea6-915294d5cd78.png)
+
+![image](https://user-images.githubusercontent.com/84040152/120679534-e3a2cf80-c45e-11eb-9646-2351837882a3.png)
+
+Crear indice de referencia BWA 
+
+```
+bwa index ecoliK12MG1655_ensembl.fna
+```
+Este comando producirá los siguientes archivos de índice bwa: 
+> ecoliK12MG1655_ensembl.fna.amb, ecoliK12MG1655_ensembl.fna.ann, ecoliK12MG1655_ensembl.fna.bwt, ecoliK12MG1655_ensembl.fna.pac, ecoliK12MG1655_ensembl.fna.sa
+
+![image](https://user-images.githubusercontent.com/84040152/120681893-7b092200-c461-11eb-902a-7ad559743db2.png)
+
+Alineamiento de las lecturas de secuenciamiento con la secuencia de referencia
+
+Alineamiento de lecturas con BWA
+
+```
+bwa mem ecoliK12MG1655_ensembl.fna GA2_R1.fastq GA2_R2.fastq > aln-pe.bwa.sam 2> bwa.log
+```
+
+![image](https://user-images.githubusercontent.com/84040152/120687966-2cab5180-c468-11eb-84fd-e039173db37d.png)
+
+![image](https://user-images.githubusercontent.com/84040152/120689383-aee84580-c469-11eb-83c4-d69eecf76700.png)
+
+
+Ver archivo SAM 
+
+Para ver el archivo file en el terminal
+
+Ver archivo BWA SAM
+
+```
+less -S aln-pe.bwa.sam
+```
+
+![image](https://user-images.githubusercontent.com/84040152/120689536-d6d7a900-c469-11eb-9022-b6ade002cfd8.png)
+
+```
+@SQ SN:GCA_000005845.2:Chromosome:1:4641652:1 LN:4641652
+@PG ID:bwa PN:bwa VN:0.7.13-r1126 CL:bwa mem ecoliK12MG1655_ensembl.fna GA2_R1.fastq GA2_R2.fastq
+EAS20_8_6_100_1000_1413 83 GCA_000005845.2:Chromosome:1:4641652:1 3849483 60 100M = 3849364 -219
+CGGCAGCGCCAGACAGAATGGCGTAAAGCGCGACAGTTCGTCCGGCAATCCCAACTGGAGCCAGAGACTGATAACAAACAGCAGCAAGTACCAGACCAGA
+F@>CCFFE/HFHHHHFFF5F@DFBED@CDBFCEHHDHDHH@BF?BFHE5HHGHHG;===6HHHHHHGHHHHEHHHHHHHGIIHHHHGGHFFFFBFFFFBB 
+NM:i:0 MD:Z:100 AS:i:100 XS:i:0
+
+EAS20_8_6_100_1000_1413 163 GCA_000005845.2:Chromosome:1:4641652:1 3849364 60 100M = 3849483 219
+GAGAGCAATAAATCCACCGGATGATCGCGCCAGGTTTGACTGGCGATCAGCGCGATGGCGTTCATCAACGTCGCAATCAGCGCCCCTTGCCAACCATAGT
+AEGE>FHFHCEGG@EFHEHHHFEFCHHGF@HFHIDHGDHHHDH=F?EEFH@BHHG>>F;F=FDCDFE6BBBFEEC7D6=D6E?:?GFEHBGGCCGE@AFB 
+NM:i:0 MD:Z:100 AS:i:100 XS:i:0
+```
+
+![image](https://user-images.githubusercontent.com/84040152/120689661-f53da480-c469-11eb-9afe-68751d9cba0c.png)
+
+La sección de encabezado se indica con el símbolo @.
 
 Referencias Bibliográficas
 
