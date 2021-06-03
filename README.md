@@ -26,8 +26,23 @@ BWA es un paquete de software para mapear lecturas de secuenciamiento frente a u
 Para todos los algoritmos, BWA primero necesita construir el índice FM para el genoma de referencia (el comando de índice). Los algoritmos de alineación se invocan con diferentes subcomandos: aln/samse/sampe para BWA-backtrack, bwasw para BWA-SW y mem para el algoritmo BWA-MEM.
 
 Instalacin de BWA
+```
 git clone https://github.com/lh3/bwa.git
 cd bwa; make
+```
+Proceso de alineación
+> Opcional: Indexar la secuencia de referencia
+
+Es preferible indexar el archivo fasta de referencia, especialmente cuando se tiene múltiples secuencias como referencias. El indice .fai permite un acceso eficiente en el archivo de alineación a regiones arbitrarias dentro de estas secuencias de referencia.
+
+Crear el indice de la secuencia de referencia
+
+```
+samtools faidx ecoliK12MG1655_ensembl.fna
+```
+Este comando producirá el siguiente archivo de índice de referencia
+
+![image](https://user-images.githubusercontent.com/84040152/120623387-4d05ec80-c425-11eb-8ea6-915294d5cd78.png)
 
 Referencias Bibliográficas
 
