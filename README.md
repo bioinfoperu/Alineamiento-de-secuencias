@@ -23,16 +23,16 @@ En esta sección realizaremos la alineación de lecturas utilizando el sotware *
 
 BWA es un paquete de software para mapear lecturas de secuenciamiento frente a un genoma de referencia, como el genoma humano. Consta de tres algoritmos: **BWA-backtrack**, **BWA-SW** y **BWA-MEM**. El primer algoritmo esta diseñado para lecturas de secuenciad de Illumina de hasta 100 pb, mientras los dos restantes para secuencias más largas que van desde 70 pb hasta unas pocas megabases. **BWA-MEM** y **BWA-SW** comparten caracteristicas similares, como el soporte de lecturas y alineación quimérica, pero **BWA-MEM** genealmente se recomienda ya que es más rápido y más preciso. **BWA-MEM** también tiene un mejor rendimiento que **BWA-backtrack** para lecturas de Illumina de 70-100 pb. 
 
-Para todos los algoritmos, **BWA** primero necesita construir el índice FM para el genoma de referencia (el comando de índice). Los algoritmos de alineación se invocan con diferentes subcomandos: **aln/samse/sampe** para **BWA-backtrack**, **bwasw** para **BWA-SW** y **mem** para el algoritmo **BWA-MEM** .En esta práctica usamremos el algoritmo **BWA-MEM**.
+Para todos los algoritmos, **BWA** primero necesita construir el índice FM para el genoma de referencia (el comando de índice). Los algoritmos de alineación se invocan con diferentes subcomandos: **aln/samse/sampe** para **BWA-backtrack**, **bwasw** para **BWA-SW** y **mem** para el algoritmo **BWA-MEM** .En esta práctica usaremos el algoritmo **BWA-MEM**.
 
 ## Requerimientos
 
-## Instalación de BWA
+### Instalación de BWA
 ```
 ~$ git clone https://github.com/lh3/bwa.git
 ~$ cd bwa; make
 ```
-**Proceso de alineación**
+## Proceso de alineación 
 
 > Opcional: Indexar la secuencia de referencia `ecoliK12MG1655_ensembl.fna`
 
@@ -237,7 +237,7 @@ suele ser un requisito para algunas, si no la mayoría, de las herramientas de a
 ```
 ![image](https://user-images.githubusercontent.com/84040152/120726333-76625f00-c49d-11eb-9bdc-a90000b349bd.png)
 
-*Esto producirá un archivo de índice BAM
+*Esto producirá un archivo de índice BAM*
 ```
 ~$ aln-pe.bwa_sorted.bam.bai
 ```
