@@ -32,7 +32,7 @@ Para todos los algoritmos, **BWA** primero necesita construir el índice FM para
 ~$ git clone https://github.com/lh3/bwa.git
 ~$ cd bwa; make
 ```
-### Set de datos###
+### Set de datos
 ```
                 Información                         Archivos
 Secuencia de    Escherichia coli K12 MG1655         ecoliK12MG1655_
