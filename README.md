@@ -11,7 +11,16 @@ Soy Sandra Justino! <img src="https://media.giphy.com/media/mGcNjsfWAjY5AEZNw6/g
 
 * La primera fila representa la secuencia de referencia y debajo están las lecturas alineadas. Las lecturas A, D y F coinciden perfectamente con la referencia. La lectura tiene una sola base de diferencia con la referencia, contiene una base de nucleótido G en lugar de la base de nucleótido A de la referencia (lugar indicado por el símbolo *).
 
-Hay una variedad de softwares que son utilizados para alinear, una lista completa se puede encontrar en la página de EBI HTS Mapper(colocar el link)
+>Hay una variedad de softwares que son utilizados para alinear, por ejemplo:
+```
+Software         Versión          URL
+BWA1             0.7.13-r1126     https://github.com/lh3/bwa/
+*Novoalign2      V3.04.04         http://www.novocraft.com/support/download/
+*Novosort3       V1.03.09         http://www.novocraft.com/support/download/
+SAMTOOLS         1.3              http://www.htslib.org/download/
+IGV              2.3.60           https://www.broadinstitute.org/igv/
+```
+Las instrucciones de instalación de cada software se encuentran en el sitio de descarga.
 
 ## Práctica ##
 
@@ -41,8 +50,9 @@ referencia      (ENSEMBL)                           ensembl.fna
 Set de          Illumina GAII (Run ID: ERR008613)   GA2_R1.fastq,
 lecturas        Paired end reads submuestreadas a   GA2_R2.fastq
                 cobertura 10X
-
 ```
+El set de datos puede ser descagado de http://bioinfo.perdanauniversity.edu.my/infohub/display/
+NPB/Index
 
 ## Proceso de alineación 
 
@@ -153,15 +163,15 @@ TAG(s)        NM:i:0 MD:Z:100 AS:i:100 XS:i:0
 * Una explicación básica sobre los campos de formato SAM que se observa arriba
 ```
 Campo         Breve descripción
-QNAME
+QNAME         Nombre, secuencia de consulta
 FLAG
-RNAME
+RNAME         Nombre, secuencia de referencia
 POS
 MAPQ          Calidad del mapeo
-CIGAR
-RNEXT
-PNEXT
-TLEN
+CIGAR         Cadena CIGAR
+RNEXT         Nombre, próxima secuencia de referencia
+PNEXT         Posición, próxima lectura
+TLEN          Longitud observada, seqcuencia consulta
 SEQ
 QUAL
 TAGs
