@@ -19,9 +19,9 @@ Conoceremos los pasos para realizar alineamientos de lecturas cortas y largas ut
 
 ## 1.1 Alineación de lecturas cortas
 
-En esta sección realizaremos la alineación de lecturas utilizando el sotware **BWA**
+En esta sección realizaremos la alineación de lecturas utilizando el sotware **BWA**.
 
-BWA es un paquete de software para mapear lecturas de secuenciamiento frente a un genoma de referencia, como el genoma humano. Consta de tres algoritmos: **BWA-backtrack**, **BWA-SW** y **BWA-MEM**. El primer algoritmo esta diseñado para lecturas de secuenciad de Illumina de hasta 100 pb, mientras los dos restantes para secuencias más largas que van desde 70 pb hasta unas pocas megabases. **BWA-MEM** y **BWA-SW** comparten caracteristicas similares, como el soporte de lecturas y alineación quimérica, pero **BWA-MEM** genealmente se recomienda ya que es más rápido y más preciso. **BWA-MEM** también tiene un mejor rendimiento que **BWA-backtrack** para lecturas de Illumina de 70-100 pb. 
+**BWA** es un paquete de software para mapear lecturas de secuenciamiento frente a un genoma de referencia, como el genoma humano. Consta de tres algoritmos: **BWA-backtrack**, **BWA-SW** y **BWA-MEM**. El primer algoritmo esta diseñado para lecturas de secuenciad de Illumina de hasta 100 pb, mientras los dos restantes para secuencias más largas que van desde 70 pb hasta unas pocas megabases. **BWA-MEM** y **BWA-SW** comparten caracteristicas similares, como el soporte de lecturas y alineación quimérica, pero **BWA-MEM** genealmente se recomienda ya que es más rápido y más preciso. **BWA-MEM** también tiene un mejor rendimiento que **BWA-backtrack** para lecturas de Illumina de 70-100 pb. 
 
 Para todos los algoritmos, **BWA** primero necesita construir el índice FM para el genoma de referencia (el comando de índice). Los algoritmos de alineación se invocan con diferentes subcomandos: **aln/samse/sampe** para **BWA-backtrack**, **bwasw** para **BWA-SW** y **mem** para el algoritmo **BWA-MEM** .En esta práctica usaremos el algoritmo **BWA-MEM**.
 
@@ -32,6 +32,18 @@ Para todos los algoritmos, **BWA** primero necesita construir el índice FM para
 ~$ git clone https://github.com/lh3/bwa.git
 ~$ cd bwa; make
 ```
+### Set de datos###
+```
+                Información                         Archivos
+Secuencia de    Escherichia coli K12 MG1655         ecoliK12MG1655_
+referencia      (ENSEMBL)                           ensembl.fna
+
+Set de          Illumina GAII (Run ID: ERR008613)   GA2_R1.fastq,
+lecturas        Paired end reads submuestreadas a   GA2_R2.fastq
+                cobertura 10X
+
+```
+
 ## Proceso de alineación 
 
 > Opcional: Indexar la secuencia de referencia `ecoliK12MG1655_ensembl.fna`
