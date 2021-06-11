@@ -51,8 +51,7 @@ Set de          Illumina GAII (Run ID: ERR008613)   GA2_R1.fastq,
 lecturas        Paired end reads submuestreadas a   GA2_R2.fastq
                 cobertura 10X
 ```
-El set de datos puede ser descagado de http://bioinfo.perdanauniversity.edu.my/infohub/display/
-NPB/Index
+El set de datos puede ser descagado de http://bioinfo.perdanauniversity.edu.my/infohub/display/NPB/Index
 
 ## Proceso de alineación 
 
