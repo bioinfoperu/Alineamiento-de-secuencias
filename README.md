@@ -242,7 +242,7 @@ Va del valor 0 al 255. Tenga cuidado y consulte la documentación del programa s
 * Ordenar alineaciones BAM
 
 La clasificación de archivos BAM es un proceso que permite ordenar las lecturas alineadas en la posición alineada con el genoma de referencia. Un archivo BAM ordenado 
-suele ser un requisito para algunas, si no la mayoría, de las herramientas de análisis. La clasificación de las lecturas de las lecturas con respecto a la posición de referencia ayuda a aumentar la eficiencia de la lectura, el procesamiento y la compactación del tamaño del archivo.
+suele ser un requisito para algunas, si no la mayoría, de las herramientas de análisis. La clasificación de las lecturas con respecto a la posición de referencia ayuda a aumentar la eficiencia de la lectura, el procesamiento y la compactación del tamaño del archivo.
 
 `La clasificación del archivo BAM puede realizarse con SAMTOOLS.`
 
